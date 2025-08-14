@@ -85,7 +85,7 @@ When powered, the ESP-01 connects to your Wi-Fi and becomes accessible via its l
 
 ## 🙌 Credits
 
-Developed by **(me)**
+Developed by **(aku)**
 Powered by Arduino + ESP8266.
 
 ## 🚀 [Live Demo of hosted website on esp-01](https://r0o7-73rm1n41.github.io/esp01-webserver/demo.html)
