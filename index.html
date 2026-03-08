@@ -615,7 +615,7 @@ body.dark .feature-item {
 
 /* ===== CTA SECTION ===== */
 .cta {
-  background: linear-gradient(135deg, var(--dark) 0%, #2a2a2a 100%);
+  background: linear-gradient(360deg, var(--dark) 0%, #2a2a2a 100%);
   color: white;
   text-align: center;
   padding: 4rem 2rem;
@@ -1029,7 +1029,34 @@ body.dark .why-choose-us {
 body.dark .fs-description {
   color: #9ca3af;
 }  
-  
+
+
+.service-gif {
+  width: 500px;             /* base width */
+  height: 500px;            /* base height */
+  object-fit: contain;      /* maintain aspect ratio */
+  margin: 0 auto 1rem auto; /* center horizontally with bottom margin */
+  display: block;
+  transition: transform 0.3s ease; /* smooth hover scaling */
+}
+
+.service-item:hover .service-gif {
+  transform: scale(1.5);   /* enlarge on hover */
+  z-index: 10;             /* ensure it appears above other content */
+}
+
+.service-item {
+  overflow: visible;
+  position: relative; /* needed if using z-index */
+}
+
+@media (max-width: 768px) {
+  .service-gif {
+    width: 80%;  /* scale down on mobile */
+    height: auto;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -1083,97 +1110,113 @@ body.dark .fs-description {
 <h2 data-aos="fade-up">Our Services</h2>
 <div class="services-grid">
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-code"></i>
+<!-- <i class="fas fa-code"></i> -->
+<img src="imgs/Web_Development.gif" alt="Web Development" class="service-gif">
 <h3>Web Development</h3>
 <p>Modern, responsive websites tailored to your needs. Progressive Web Apps (PWAs) with React, Next.js, and Firebase.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-mobile-alt"></i>
+<!-- <i class="fas fa-mobile-alt"></i> -->
+ <img src="imgs/Responsive_Design.gif" alt="Web Development" class="service-gif">
 <h3>Responsive Design</h3>
 <p>Mobile-first layouts with HTML5, CSS3, Tailwind CSS, and Bootstrap.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-laptop-code"></i>
+<!-- <i class="fas fa-laptop-code"></i> -->
+<img src="imgs/Frontend_Development.gif" alt="Web Development" class="service-gif"> 
 <h3>Frontend Development</h3>
 <p>Interactive UI with React, Vue.js, or Angular for smooth user experiences on all devices.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-tachometer-alt"></i>
+<!-- <i class="fas fa-tachometer-alt"></i> -->
+<img src="imgs/Website_Optimization2.gif" alt="Web Development" class="service-gif"> 
 <h3>Website Optimization</h3>
 <p>Boost speed and rankings with Lighthouse, GTmetrix, and SEO best practices.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-shopping-cart"></i>
+<!-- <i class="fas fa-shopping-cart"></i> -->
+<img src="imgs/eCommerce_Solutions.gif" alt="Web Development" class="service-gif"> 
 <h3>eCommerce Solutions</h3>
 <p>Complete stores using Magento, BigCommerce, or Headless Shopify.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fab fa-wordpress"></i>
+<!-- <i class="fab fa-wordpress"></i> -->
+<img src="imgs/Wordpress_Developement.gif" alt="Web Development" class="service-gif">  
 <h3>WordPress Development</h3>
 <p>Custom WordPress websites with powerful functionality, scalable architecture, and user-friendly admin interfaces.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-cogs"></i>
+<!-- <i class="fas fa-cogs"></i> -->
+<img src="imgs/WooCommerce_Development.gif" alt="Web Development" class="service-gif">  
 <h3>WooCommerce Development</h3>
 <p>Custom WooCommerce stores tailored to your business needs, offering seamless e-commerce experiences.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-pencil-alt"></i>
+<!-- <i class="fas fa-pencil-alt"></i> -->
+<img src="imgs/wix-logo.svg" alt="Web Development" class="service-gif">  
 <h3>Wix Development</h3>
 <p>Professional Wix websites with custom functionality, animations, and responsive designs for all devices.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-store"></i>
+<!-- <i class="fas fa-store"></i> -->
+<img src="imgs/Shopify_Development2.gif" alt="Web Development" class="service-gif">  
 <h3>Shopify Development</h3>
 <p>Beautiful and conversion-focused Shopify stores that drive sales and provide seamless shopping experiences.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-server"></i>
+<!-- <i class="fas fa-server"></i> -->
+<img src="imgs/Backend_Development2.gif" alt="Web Development" class="service-gif">  
 <h3>Backend Development</h3>
 <p>Secure, scalable APIs and logic using Node.js, Django, Laravel, or Express.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-plug"></i>
+<!-- <i class="fas fa-plug"></i> -->
+<img src="imgs/API_Integration.gif" alt="Web Development" class="service-gif">  
 <h3>API Integration</h3>
 <p>Seamless integration with RESTful and GraphQL APIs for dynamic apps.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-window-maximize"></i>
+<!-- <i class="fas fa-window-maximize"></i> -->
+<img src="imgs/CMS_Development.gif" alt="Web Development" class="service-gif">  
 <h3>CMS Development</h3>
 <p>Custom CMS with Strapi, Sanity, or Headless WordPress for easy content control.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-rocket"></i>
+<!-- <i class="fas fa-rocket"></i> -->
+<img src="imgs/Landing_Page_Development.gif" alt="Web Development" class="service-gif">   
 <h3>Landing Page Development</h3>
 <p>High-converting pages for campaigns, product launches, and leads.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
-<i class="fas fa-cloud-upload-alt"></i>
+<!-- <i class="fas fa-cloud-upload-alt"></i> -->
+<img src="imgs/Hosting&Deployment2.gif" alt="Web Development" class="service-gif">  
 <h3>Hosting & Deployment</h3>
 <p>Deploy using Vercel, Netlify, or AWS — with CI/CD and SSL setup.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up" data-aos-delay="100">
-<i class="fas fa-search"></i>
+<!-- <i class="fas fa-search"></i> -->
+<img src="imgs/SEO_Optimization.gif" alt="Web Development" class="service-gif">  
 <h3>SEO Optimization</h3>
 <p>Boost your website's visibility and traffic with strategic SEO solutions.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up" data-aos-delay="200">
-<i class="fas fa-bullhorn bullhorn-icon"></i>
+<!-- <i class="fas fa-bullhorn bullhorn-icon"></i> -->
+<img src="imgs/Digital_Marketing.gif" alt="Web Development" class="service-gif">  
 <h3>Digital Marketing</h3>
 <p>Strategic marketing campaigns for your business growth and success.</p>
 </div>
@@ -1186,19 +1229,22 @@ body.dark .fs-description {
 <h2 style="color:rgb(255, 255, 255);" data-aos="fade-up">Why Choose Us</h2>
 <div class="features-grid">
 <div class="feature-item" data-aos="fade-up">
-<i class="fas fa-check-circle"></i>
+<!-- <i class="fas fa-check-circle"></i> -->
+<img src="imgs/Reliable.gif" alt="Reliable">  
 <h3>Reliable</h3>
 <p>Trusted by clients for consistent performance. We don't just build websites—we build digital assets that work for your business 24/7. We transform complex challenges into scalable results for your business goals.</p>
 </div>
 
 <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
-<i class="fas fa-bolt"></i>
+<!-- <i class="fas fa-bolt"></i> -->
+<img src="imgs/Fast_Delivery.gif" alt="Reliable"> 
 <h3>Fast Delivery</h3>
 <p>Fcity Online delivers with speed, precision, and strategic services & solutions, end-to-end tailored to professionals and businesses at every scale.</p>
 </div>
 
 <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
-<i class="fas fa-star"></i>
+<!-- <i class="fas fa-star"></i> -->
+<img src="imgs/Expertise.gif" alt="Reliable">
 <h3>Expertise</h3>
 <p>We're a technology partner committed to turning complex challenges into streamlined digital solutions. With expert IT consulting, proactive support, and a proven track record, we help you unlock growth through technology.</p>
 </div>
@@ -1270,7 +1316,7 @@ required
 <div class="container footer-main">
 <div>
 <!-- <h3>About</h3> -->
-<h3 style="color:red;">About</h3>
+<h3 style="color:red;">About Us</h3>
 <p>www.fcity.online<br>
 "Digital Services & Solutions"<br>
 💻 CMS/Front-End/Back-End<br>
