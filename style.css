@@ -31,6 +31,7 @@ body {
   color: var(--dark);
   background-color: var(--light);
   transition: var(--transition);
+  padding-top: 80px; /* space for fixed header */
 }
 
 body.dark {
@@ -70,11 +71,31 @@ header {
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   padding: 1rem 0;
-  position: sticky;
+  position: fixed; /* stay at top no matter what */
   top: 0;
-  z-index: 1000;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2000; /* above any canvas or other layers */
   box-shadow: var(--shadow-sm);
   transition: var(--transition);
+}
+
+/* when content scrolls under header make background a tad more solid */
+header.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: var(--shadow-md);
+}
+
+/* dark mode scrolled variation */
+body.dark header.scrolled {
+  background: rgba(13, 17, 23, 0.98);
+}
+
+/* ensure nav buttons always on top */
+header .menu-toggle,
+header .dark-toggle {
+  z-index: 1100;
 }
 
 /* header {
@@ -212,6 +233,23 @@ nav ul li a:hover::after {
   color: white !important;
 }
 
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--dark);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative; /* participate in flex layout */
+  margin-left: auto; /* push to right side */
+}
+
+body.dark .menu-toggle {
+  color: #f0f0f0;
+}
+
+/* dark-toggle also align right and ensure visibility */
 .dark-toggle {
   background: none;
   border: none;
@@ -221,30 +259,10 @@ nav ul li a:hover::after {
   padding: 0.5rem;
   border-radius: 50%;
   transition: background 0.3s ease;
+  margin-left: 1rem;
 }
 
 body.dark .dark-toggle {
-  color: #f0f0f0;
-}
-
-.dark-toggle:hover {
-  background: rgba(0, 102, 255, 0.1);
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--dark);
-  font-size: 1.5rem;
-  cursor: pointer;
-  padding: 0.5rem;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-body.dark .menu-toggle {
   color: #f0f0f0;
 }
 
@@ -261,6 +279,13 @@ body.dark .menu-toggle {
     padding: 1rem;
     box-shadow: var(--shadow-md);
   }
+  nav ul li {
+    width: 100%;
+  }
+  nav ul li a {
+    display: block;
+    padding: 0.75rem 1rem;
+  }
   nav ul.show {
     display: flex;
   }
@@ -273,6 +298,38 @@ body.dark .menu-toggle {
 /* ===== HERO SECTION ===== */
 section {
   padding: 4rem 2rem;
+}
+
+.hero2 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  overflow: hidden;
+  background: #000; /* fallback background */
+}
+
+/* responsive typography for hero2 */
+.hero2 h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-bottom: 1rem;
+}
+.hero2 p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+}
+
+.hero2 .container2 {
+  position: relative;
+  z-index: 2; /* text above VANTA canvas */
+  width: 95%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  text-align: center;
 }
 
 .hero {
@@ -384,6 +441,12 @@ section {
     border-radius: 50% 30% 70% 40%;
   }
 }
+
+
+
+
+
+
 
 .hero::before {
   content: "";
@@ -558,9 +621,26 @@ body.dark .service-item {
 
 
 
+.professional-section ul {
+  list-style-type: disc;      /* standard bullet points */
+  padding-left: 1.5rem;       /* space from left edge */
+  margin-top: 1rem;
+  columns: 1;
+  column-gap: 2rem;
+}
+
+/* two-column layout for longer lists on medium+ screens */
+@media (min-width: 768px) {
+  .professional-section ul {
+    columns: 2;
+  }
+}
+
 .professional-section ul li {
-  margin-bottom: 0.5rem;
-  line-height: 1.5;
+  margin-bottom: 0.5rem;      /* spacing between bullets */
+  line-height: 1.5;           /* already set, keep it */
+  color: #6c757d;                /* nice readable color */
+  font-size: 1rem;            /* adjust if needed */
 }
 
 .professional-section {
@@ -789,6 +869,19 @@ body.dark .cta p {
   transform: translateY(-3px);
   box-shadow: var(--shadow-lg);
   color: white !important;
+}
+
+/* responsive image in CTA */
+.cta img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+@media (max-width: 768px) {
+  .cta img {
+    width: 80%;
+  }
 }
 
 /* ===== FOOTER ===== */
@@ -1078,6 +1171,40 @@ body.dark .why-choose-us {
   height: 100% !important;
   z-index: 0;
   opacity: 0.8; /* make effect stronger */
+}
+
+/* Vanta background for birds section */
+#birds-bg {
+  position: relative;
+  overflow: hidden;
+  /* make underlying animation visible */
+  background: rgba(248, 249, 250, 0.6) !important;
+}
+body.dark #birds-bg {
+  background: rgba(26, 26, 26, 0.6) !important;
+}
+#birds-bg canvas {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  z-index: 0;
+  opacity: 0.8;
+}
+
+/* make inner container transparent so birds show through */
+#birds-bg .professional-section {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+#birds-bg .professional-section p,
+#birds-bg .professional-section h2 {
+  color: #333;
+}
+body.dark #birds-bg .professional-section p,
+body.dark #birds-bg .professional-section h2 {
+  color: #333;
 }
 .why-choose-us .container {
   position: relative;
