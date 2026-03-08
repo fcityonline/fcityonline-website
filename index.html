@@ -725,14 +725,19 @@ footer p {
   color: var(--secondary) !important;
 }
 
-.social-icons a:hover { 
+/* .social-icons a:hover { 
    background: var(--primary); 
   background: purple, dark pink, red, orange, yellow; 
    color: white !important; 
    transform: translateY(-3px); 
    margin-left: 0; 
- }
-
+ } */
+.social-icons a:hover { 
+   background: linear-gradient(45deg, purple, hotpink, red, orange, yellow); 
+   color: white !important; 
+   transform: translateY(-3px); 
+   margin-left: 0; 
+}
 
 .footer-bottom {
   text-align: center;
@@ -951,6 +956,80 @@ body.dark .why-choose-us {
   position: relative;
   z-index: 1;
 }
+
+/* ===== FORM STYLE ===== */
+
+.fs-form {
+  display: grid;
+  row-gap: 1.2rem;
+  max-width: 600px;
+  margin: 2rem auto 0;
+}
+
+.fs-input,
+.fs-textarea {
+  width: 100%;
+}
+
+.fs-input {
+  border-radius: 25px;
+}
+
+.fs-button-group {
+  justify-content: center;
+}
+  
+.fs-button {
+  background: linear-gradient(135deg, var(--primary), #004bb8);
+  color: white;
+  border: none;
+  padding: 0.9rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fs-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.fs-input,
+.fs-textarea {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.fs-input:focus,
+.fs-textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.fs-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.3rem;
+}  
+
+.fs-input,
+.fs-textarea {
+  padding: 12px 14px;
+}  
+
+.fs-description {
+  font-size: 0.85rem;
+  color: var(--gray);
+  margin-top: 4px;
+}
+
+body.dark .fs-description {
+  color: #9ca3af;
+}  
+  
 </style>
 </head>
 <body>
@@ -1024,7 +1103,7 @@ body.dark .why-choose-us {
 <div class="service-item" data-aos="fade-up">
 <i class="fas fa-tachometer-alt"></i>
 <h3>Website Optimization</h3>
-<p>Boost speed and rankings with Lighthouse, GTmetrix, and SEO best practicas.</p>
+<p>Boost speed and rankings with Lighthouse, GTmetrix, and SEO best practices.</p>
 </div>
 
 <div class="service-item" data-aos="fade-up">
@@ -1127,14 +1206,66 @@ body.dark .why-choose-us {
 </div>
 </section>
 
-<section class="cta" data-aos="zoom-in">
+<!-- <section class="cta" data-aos="zoom-in">
 <div class="container">
 <h2>Ready to grow your business?</h2>
 <p>Partner with Fcity Online Digital Services & IT Solutions — Start your digital transformation today</p>
 <a href="tel:+919999353283" class="call-us">Get Started Today</a>
 </div>
-</section>
+</section> -->
 
+<!-- <section class="cta" data-aos="zoom-in"> -->
+<section class="cta" id="contact" data-aos="zoom-in">
+<div class="container">
+
+<h2>Ready to grow your business?</h2>
+<p>Send us a message and we will contact you shortly.</p>
+
+<form
+  action="https://formspree.io/f/xdawkwne"
+  class="fs-form"
+  target="_top"
+  method="POST"
+>
+
+<input type="text" name="_gotcha" style="display:none">
+<input type="hidden" name="_next" value="https://fcity.online/thank-you.html">
+  
+<div class="fs-field">
+<label class="fs-label" for="name">Your Name</label>
+<input class="fs-input" id="name" name="name" required />
+</div>
+
+<div class="fs-field">
+<label class="fs-label" for="email">Email</label>
+<input class="fs-input" id="email" name="email" type="email" required />
+<p class="fs-description">
+This will help us respond to your query.
+</p>
+</div>
+
+<div class="fs-field">
+<label class="fs-label" for="message">Message</label>
+<textarea
+class="fs-textarea"
+id="message"
+name="message"
+rows="4"
+required
+></textarea>
+<p class="fs-description">What would you like to discuss?</p>
+</div>
+
+<div class="fs-button-group">
+<button class="fs-button" type="submit">Send Message</button>
+</div>
+
+</form>
+
+</div>
+</section>
+  
+  
 <footer id="contact">
 <div class="container footer-main">
 <div>
@@ -1163,7 +1294,7 @@ body.dark .why-choose-us {
 <a href="https://www.instagram.com/fcityonline/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
 <i class="fab fa-instagram"></i>
 </a>
-<a href="contact.fcity.online@gmail.com" aria-label="Gmail">
+<a href="mailto:contact.fcity.online@gmail.com">
 <i class="fab fa-google"></i>
 </a>
 </div>
@@ -1224,3 +1355,4 @@ window.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+
