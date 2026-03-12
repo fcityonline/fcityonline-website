@@ -71,9 +71,7 @@ if(header){
 
   const textArray = [
     "Fcity Online",
-    "Digital Services & IT Solutions",
-    "Web Development",
-    "SEO & Digital Marketing"
+    "Digital Services & IT Solutions"
   ];
 
   let index = 0;
