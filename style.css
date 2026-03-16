@@ -34,7 +34,7 @@ html {
   width:100%;
   margin:40px auto;
   padding:25px 0;
-  background:rgba(255,255,255,0.05);
+  /* background:rgba(255,255,255,0.05); */
   border-radius:10px;
   position:relative;
 }
