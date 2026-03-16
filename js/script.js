@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let path = window.location.pathname;
 
   let headerPath, footerPath;
+
   if (path.includes("/services/")) {
     headerPath = "../components/header.html";
     footerPath = "../components/footer.html";
@@ -53,18 +54,17 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-const header = document.querySelector("header");
+    const header = document.querySelector("header");
 
-if(header){
-  window.addEventListener("scroll", () => {
-    header.classList.toggle("scrolled", window.scrollY > 50);
-  });
-}
+    if (header) {
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 50);
+      });
+    }
 
   });
 
   loadComponent("footer", footerPath);
-
 
 
   /* ---------------- TYPEWRITER EFFECT ---------------- */
@@ -90,34 +90,23 @@ if(header){
     currentText = textArray[index];
 
     if (!isDeleting) {
-
       typedText.textContent = currentText.substring(0, charIndex + 1);
       charIndex++;
-
     } else {
-
       typedText.textContent = currentText.substring(0, charIndex - 1);
       charIndex--;
-
     }
 
     if (!isDeleting && charIndex === currentText.length) {
-
       isDeleting = true;
       setTimeout(typeEffect, 1500);
       return;
-
     }
 
     if (isDeleting && charIndex === 0) {
-
       isDeleting = false;
       index++;
-
-      if (index === textArray.length) {
-        index = 0;
-      }
-
+      if (index === textArray.length) index = 0;
     }
 
     setTimeout(typeEffect, isDeleting ? 50 : 90);
@@ -125,13 +114,52 @@ if(header){
 
   typeEffect();
 
+
+  /* ---------------- FAQ ACCORDION ---------------- */
+
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(btn => {
+
+  btn.addEventListener("click", () => {
+
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector("i");
+
+    document.querySelectorAll(".faq-answer").forEach(a=>{
+      if(a !== answer){
+        a.style.display = "none";
+      }
+    });
+
+    document.querySelectorAll(".faq-question i").forEach(i=>{
+      if(i !== icon){
+        i.classList.remove("fa-chevron-up");
+        i.classList.add("fa-chevron-down");
+      }
+    });
+
+    if(answer.style.display === "block"){
+      answer.style.display = "none";
+      icon.classList.remove("fa-chevron-up");
+      icon.classList.add("fa-chevron-down");
+    }else{
+      answer.style.display = "block";
+      icon.classList.remove("fa-chevron-down");
+      icon.classList.add("fa-chevron-up");
+    }
+
+  });
+
 });
 
+  /* ---------------- TECH MARQUEE ---------------- */
 
+  const track = document.getElementById("techTrack");
 
-const track = document.getElementById("techTrack");
+  if (track) {
+    const clone = track.innerHTML;
+    track.innerHTML += clone;
+  }
 
-if(track){
-  const clone = track.innerHTML;
-  track.innerHTML += clone;
-}
+});
