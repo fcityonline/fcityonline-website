@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Responsive Design Services | Fcity Online</title>
+<meta name="description"
+content="Professional responsive web design services by Fcity Online. Mobile-first layouts, optimized for all devices using HTML5, CSS3, Tailwind CSS, and Bootstrap.">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<!-- HEADER LOAD -->
+<div id="header"></div>
+
+<!-- HERO SECTION WITH VANTA GLOBE -->
+<section class="hero2" id="vanta-hero">
+  <div class="container2">
+<h1 style="color: black;">RESPONSIVE DESIGN SERVICES</h1>
+<p style="color: black;">Mobile-First, Flexible, and Optimized for Every Device</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT WITH VANTA BIRDS -->
+<section class="container2" id="birds-bg">
+  <div class="professional-section">
+    <div class="web-dev-h2">
+      <h2>Modern Responsive Design Solutions</h2>
+    </div>
+    <p>
+      At Fcity Online, we create responsive websites that adapt seamlessly to any device—desktop, tablet, or mobile. 
+      Our mobile-first design approach ensures that every element, from layouts to typography, is optimized for usability, accessibility, and performance.
+      Using the latest technologies including HTML5, CSS3, Tailwind CSS, and Bootstrap, we build websites that are not only visually appealing but also fast, user-friendly, and conversion-focused.
+    </p>
+  </div>
+
+  <div class="professional-section">
+    <h2>Our Responsive Design Services</h2>
+    <p>
+      We specialize in delivering modern, scalable, and fully responsive web solutions for businesses of all sizes. 
+      Our services ensure that your website looks perfect and works flawlessly on every screen.
+    </p>
+    <ul>
+      <li>Mobile-First Layouts for optimal viewing on all devices</li>
+      <li>Fluid grids and flexible images for adaptive content</li>
+      <li>Cross-Browser Compatibility using HTML5 and CSS3</li>
+      <li>Rapid prototyping and design iterations with Tailwind CSS</li>
+      <li>Custom responsive components with Bootstrap</li>
+      <li>Enhanced performance and fast loading for mobile users</li>
+      <li>SEO-ready design to boost search rankings</li>
+      <li>User-friendly navigation and intuitive interfaces</li>
+    </ul>
+  </div>
+
+  <div class="professional-section">
+    <h2>Technologies We Use</h2>
+    <p>
+      Our responsive design team leverages the following technologies to build modern, mobile-friendly websites:
+    </p>
+    <ul>
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>Tailwind CSS</li>
+      <li>Bootstrap</li>
+      <li>JavaScript (ES6+)</li>
+      <li>React.js for dynamic UIs</li>
+      <li>Next.js for server-side rendering</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<div class="cta">
+  <img src="../imgs/Contact_Us.gif" alt="Quick Support">
+  <h2>Ready to Make Your Website Fully Responsive?</h2>
+  <p>Partner with Fcity Online to create a mobile-first, flexible, and visually stunning website that engages users across all devices.</p>
+  <a href="tel:+919999353283" class="call-us">Get Started Today</a>
+</div>
+
+<!-- FOOTER LOAD -->
+<div id="footer"></div>
+
+<!-- VANTA BACKGROUNDS SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.134.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.globe.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.birds.min.js"></script>
+
+<script>
+  // Vanta Globe for Hero Section
+  VANTA.GLOBE({
+    el: "#vanta-hero",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    backgroundColor: 0xffffff,
+    color: 0xff3f81,
+    color2: 0xffffff,
+    size: 1
+  });
+
+  // Vanta Birds for Main Content Section
+  VANTA.BIRDS({
+    el: "#birds-bg",
+    mouseControls: true,
+    touchControls: true,
+    gyroControls: false,
+    minHeight: 200.00,
+    minWidth: 200.00,
+    scale: 1.00,
+    scaleMobile: 1.00,
+    backgroundColor: 0xffffff,
+    color1: 0xff0000,
+    color2: 0xd1ff,
+    colorMode: "varianceGradient",
+    quantity: 5,
+    birdSize: 1,
+    wingSpan: 30,
+    speedLimit: 5,
+    separation: 20,
+    alignment: 20,
+    cohesion: 20
+  });
+</script>
+
+<script src="../js/script.js"></script>
+</body>
+</html>
