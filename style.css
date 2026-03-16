@@ -25,6 +25,66 @@ html {
   scroll-behavior: smooth;
 }
 
+
+
+/* TECH ICON MARQUEE */
+
+.tech-marquee{
+  overflow:hidden;
+  width:100%;
+  margin:40px auto;
+  padding:25px 0;
+  background:rgba(255,255,255,0.05);
+  border-radius:10px;
+  position:relative;
+}
+
+.tech-track{
+  display:flex;
+  align-items:center;
+  gap:60px;
+  animation:scrollTech 25s linear infinite;
+}
+
+.tech-track img{
+  height:clamp(40px,6vw,60px);
+  width:auto;
+  transition:transform .3s ease;
+  filter:drop-shadow(0 3px 8px rgba(0,0,0,0.2));
+}
+
+.tech-track img:hover{
+  transform:scale(1.2);
+}
+
+/* smooth infinite scroll */
+
+@keyframes scrollTech{
+  from{
+    transform:translateX(0);
+  }
+  to{
+    transform:translateX(-50%);
+  }
+}
+
+/* pause animation on hover */
+
+.tech-marquee:hover .tech-track{
+  animation-play-state: paused;
+}
+
+/* mobile spacing */
+
+@media (max-width:768px){
+
+  .tech-track{
+    gap:35px;
+  }
+
+}
+
+
 .dev-banner{
   position: fixed;
   background: linear-gradient(90deg,#ff0000,#ff4d4d);
