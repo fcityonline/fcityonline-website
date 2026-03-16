@@ -123,4 +123,15 @@ if(header){
 
   typeEffect();
 
+
+    /* ---------------- TECH TRACK DUPLICATION ---------------- */
+  const track = document.getElementById("techTrack");
+  if (track && !track.dataset.cloned) {
+    track.innerHTML += track.innerHTML; // duplicate content
+    track.dataset.cloned = "true"; // prevent future duplication
+  }
+
+});
+
+  
 });
