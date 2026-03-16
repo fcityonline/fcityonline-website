@@ -25,6 +25,39 @@ html {
   scroll-behavior: smooth;
 }
 
+.dev-banner{
+  position: fixed;
+  background: linear-gradient(90deg,#ff0000,#ff4d4d);
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #e60000;
+  color: white;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 6px 10px;
+  z-index: 3000;
+  letter-spacing: 0.3px;
+}
+
+/* push header down */
+header{
+  top: 32px;
+}
+
+/* mobile adjustments */
+@media (max-width:768px){
+  .dev-notice{
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+
+  header{
+    top: 30px;
+  }
+}
+
 body {
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
   line-height: 1.6;
