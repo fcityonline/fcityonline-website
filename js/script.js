@@ -71,7 +71,9 @@ if(header){
 
   const textArray = [
     "Fcity Online",
-    "Digital Services & IT Solutions"
+    "Digital Services & IT Solutions",
+    "Web Development",
+    "SEO & Digital Marketing"
   ];
 
   let index = 0;
@@ -123,15 +125,13 @@ if(header){
 
   typeEffect();
 
-
-    /* ---------------- TECH TRACK DUPLICATION ---------------- */
-  const track = document.getElementById("techTrack");
-  if (track && !track.dataset.cloned) {
-    track.innerHTML += track.innerHTML; // duplicate content
-    track.dataset.cloned = "true"; // prevent future duplication
-  }
-
 });
 
-  
-});
+
+
+const track = document.getElementById("techTrack");
+
+if(track){
+  const clone = track.innerHTML;
+  track.innerHTML += clone;
+}
