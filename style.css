@@ -156,7 +156,7 @@ body {
   color: var(--dark);
   /* background-color: var(--light); */
   transition: var(--transition);
-  padding-top: 80px; /* space for fixed header */
+  padding-top: 58px; /* space for fixed header */
 }
 
 body.dark {
