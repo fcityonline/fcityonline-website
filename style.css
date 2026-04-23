@@ -40,6 +40,23 @@ h2 {
   color: #111;
 }
 
+
+
+
+.hero2 h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin-bottom: 20px;
+}
+
+.hero2 p {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  margin-bottom: 15px;
+}
+
+
+
+
+
 /* ---------------- Specific h2: Modern Web Development Solutions ---------------- */
 .web-dev-h2 h2 {
     font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -146,9 +163,9 @@ header{
 
 
 /* Push the header down so banner doesn't overlap */
-body{
+/* body{
   margin-top: 35px;
-}
+} */
 
 body {
   font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
