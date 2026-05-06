@@ -30,13 +30,42 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadComponent("header", headerPath, () => {
 
+    const header = document.querySelector("header");
     const menuToggle = document.getElementById("mobile-menu");
-    const navLinks = document.querySelector("nav ul");
+    const navLinks = header ? header.querySelector("nav ul") : null;
+    let overlay = document.querySelector(".menu-overlay");
 
-    if (menuToggle) {
+    if (!overlay) {
+      overlay = document.createElement("div");
+      overlay.className = "menu-overlay";
+      document.body.appendChild(overlay);
+    }
+
+    if (menuToggle && navLinks) {
+      const setMenuIcon = isOpen => {
+        menuToggle.classList.toggle("open", isOpen);
+      };
+
+      const closeMenu = () => {
+        navLinks.classList.remove("show");
+        overlay.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        setMenuIcon(false);
+      };
+
       menuToggle.addEventListener("click", () => {
         navLinks.classList.toggle("show");
+        overlay.classList.toggle("active");
+        const isOpen = navLinks.classList.contains("show");
+        menuToggle.setAttribute("aria-expanded", isOpen);
+        setMenuIcon(isOpen);
       });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", closeMenu);
+      });
+
+      overlay.addEventListener("click", closeMenu);
     }
 
     const darkToggle = document.getElementById("darkToggle");
@@ -53,8 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
       });
     }
-
-    const header = document.querySelector("header");
 
     if (header) {
       window.addEventListener("scroll", () => {
@@ -153,6 +180,45 @@ faqQuestions.forEach(btn => {
 
 });
 
+  /* ---------------- CLASSY TEXT REVEAL ---------------- */
+
+  const revealText = document.querySelectorAll(
+    ".hero h1, .hero h2, .hero h3, .hero p, .hero a, " +
+    ".hero2 h1, .hero2 h2, .hero2 h3, .hero2 p, .hero2 a, " +
+    ".services h2, .service-item h3, .service-item p, " +
+    ".why-choose-us h2, .feature-item h3, .feature-item p, " +
+    ".professional-section h2, .professional-section p, .professional-section li, " +
+    ".faq-title, .faq-question, .faq-answer p, " +
+    ".cta h2, .cta p, .cta a, " +
+    "footer h3, footer p, footer a"
+  );
+
+  revealText.forEach((el, index) => {
+    if (el.closest(".tech-track") || el.closest("header")) return;
+
+    el.classList.add("classy-reveal");
+    const delay = el.closest(".hero, .hero2") ? index * 0.16 : Math.min(index % 5, 4) * 0.08;
+    el.style.animationDelay = `${delay}s`;
+  });
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.18,
+    rootMargin: "0px 0px -12% 0px"
+  });
+
+  revealText.forEach(el => {
+    if (el.classList.contains("classy-reveal")) {
+      revealObserver.observe(el);
+    }
+  });
+
   /* ---------------- TECH MARQUEE ---------------- */
 
   const track = document.getElementById("techTrack");
@@ -160,6 +226,13 @@ faqQuestions.forEach(btn => {
   if (track) {
     const clone = track.innerHTML;
     track.innerHTML += clone;
+  }
+
+  const appsTrack = document.getElementById("appsTrack");
+
+  if (appsTrack && !appsTrack.dataset.cloned) {
+    appsTrack.innerHTML += appsTrack.innerHTML;
+    appsTrack.dataset.cloned = "true";
   }
 
 });
