@@ -101,10 +101,16 @@ document.addEventListener("DOMContentLoaded", function () {
   /* ---------------- TYPEWRITER EFFECT ---------------- */
 
   const textArray = [
-    "Fcity Online",
+    
     "Digital Services & IT Solutions",
     "Web Development",
-    "SEO & Digital Marketing"
+    "SEO & Digital Marketing",
+    "CMS/Front-End/Back-End",
+    "Development",
+    "IT Consulting",
+    "Networking",
+    "And Much More..."
+    
   ];
 
   let index = 0;
