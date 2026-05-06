@@ -2,8 +2,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   /* ---------------- COMPONENT LOADER ---------------- */
 
+  const componentVersion = "20260507-footer-icons";
+
   function loadComponent(id, file, callback) {
-    fetch(file)
+    const separator = file.includes("?") ? "&" : "?";
+
+    fetch(`${file}${separator}v=${componentVersion}`, { cache: "no-store" })
       .then(response => {
         if (!response.ok) throw new Error("Component not found: " + file);
         return response.text();
