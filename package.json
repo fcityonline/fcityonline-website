@@ -1,0 +1,14 @@
+{
+  "name": "fcityonline-website",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "convert-images": "node convert.js"
+  },
+  "dependencies": {
+    "imagemin": "^9.0.1",
+    "imagemin-gif2webp": "^3.0.0",
+    "imagemin-webp": "^8.0.0"
+  }
+}

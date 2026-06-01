@@ -4,35 +4,33 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const componentVersion = "20260507-footer-icons";
 
-  function loadComponent(id, file, callback) {
+  const buildComponentUrl = (file) => {
     const separator = file.includes("?") ? "&" : "?";
+    return `${file}${separator}v=${componentVersion}`;
+  };
 
-    fetch(`${file}${separator}v=${componentVersion}`, { cache: "no-store" })
-      .then(response => {
-        if (!response.ok) throw new Error("Component not found: " + file);
-        return response.text();
-      })
-      .then(data => {
-        const el = document.getElementById(id);
-        if (el) el.innerHTML = data;
-        if (callback) callback();
-      })
-      .catch(err => console.error(err));
-  }
+  const loadHTMLComponent = async (id, file) => {
+    const placeholder = document.getElementById(id);
+    if (!placeholder) return;
 
-  let path = window.location.pathname;
+    try {
+      const response = await fetch(buildComponentUrl(file), { cache: "no-store" });
+      if (!response.ok) throw new Error(`Component not found: ${file} (${response.status})`);
+      placeholder.innerHTML = await response.text();
+    } catch (error) {
+      console.error(`Failed to stitch component [${file}]:`, error);
+    }
+  };
 
-  let headerPath, footerPath;
+  const path = window.location.pathname;
+  const relativePrefix = path.includes("/services/") ? "../" : "./";
+  const headerPath = `${relativePrefix}components/header.html`;
+  const footerPath = `${relativePrefix}components/footer.html`;
 
-  if (path.includes("/services/")) {
-    headerPath = "../components/header.html";
-    footerPath = "../components/footer.html";
-  } else {
-    headerPath = "./components/header.html";
-    footerPath = "./components/footer.html";
-  }
+  const headerLoad = loadHTMLComponent("header", headerPath);
+  const footerLoad = loadHTMLComponent("footer", footerPath);
 
-  loadComponent("header", headerPath, () => {
+  headerLoad.then(() => {
 
     const header = document.querySelector("header");
     const menuToggle = document.getElementById("mobile-menu");
@@ -94,8 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
   });
-
-  loadComponent("footer", footerPath);
 
 
   /* ---------------- TYPEWRITER EFFECT ---------------- */

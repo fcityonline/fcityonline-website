@@ -57,32 +57,7 @@
 <body>
 
 
-<header >
-    <div class="container nav-container">
-
-        <a href="/" class="logo">
-            <img loading="lazy" src="imgs/fcityonline-logo.jpg" alt="Fcity Logo">
-            <span>fcityonline</span>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/#services">Services</a></li>
-                <li><a href="/#why">Why Us</a></li>
-                <li><a href="/#contact">Contact</a></li>
-                <li><a href="tel:+919999353283" class="call-us">Call Us</a></li>
-            </ul>
-        </nav>
-        <button class="menu-toggle burger" id="mobile-menu" type="button" aria-label="Toggle menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <button class="dark-toggle" id="darkToggle" title="Toggle dark mode">
-          <i class="fas fa-moon"></i>
-        </button>
-      </div>
-    </header>
+<div id="header"></div>
     
     
     <section class="hero" data-aos="fade-up">
@@ -128,7 +103,10 @@
 <a href="services/web-development.html" class="service-link">
   <div class="service-item" data-aos="fade-up">
     <!-- <i class="fas fa-code"></i> -->
-     <img loading="lazy" src="imgs/Web_Development.gif" alt="Web Development" class="service-gif" width="120" height="120">
+    <picture>
+      <source type="image/webp" srcset="imgs/Web_Development.webp">
+      <img loading="lazy" decoding="async" src="imgs/Web_Development.gif" alt="Web Development" class="service-gif" width="120" height="120">
+    </picture>
     <h3>Web Development</h3>
     <p>Modern, responsive websites tailored to your needs. Progressive Web Apps (PWAs) with React, Next.js, and Firebase.</p>
   </div>
@@ -137,7 +115,10 @@
 <a href="services/responsive-design.html" class="service-link">
   <div class="service-item" data-aos="fade-up">
     <!-- <i class="fas fa-mobile-alt"></i> -->
-    <img loading="lazy" src="imgs/Responsive_Design.gif" alt="Responsive Design" class="service-gif" width="120" height="120">
+    <picture>
+      <source type="image/webp" srcset="imgs/Responsive_Design.webp">
+      <img loading="lazy" decoding="async" src="imgs/Responsive_Design.gif" alt="Responsive Design" class="service-gif" width="120" height="120">
+    </picture>
     <h3>Responsive Design</h3>
     <p>Mobile-first layouts with HTML5, CSS3, Tailwind CSS, and Bootstrap.</p>
   </div>
@@ -153,7 +134,10 @@
 <a href="services/website-optimization.html" class="service-link">
 <div class="service-item" data-aos="fade-up">
 <!-- <i class="fas fa-tachometer-alt"></i> -->
-<img loading="lazy" src="imgs/Website_Optimization2.gif" alt="Website Optimization" class="service-gif" width="120" height="120"> 
+<picture>
+  <source type="image/webp" srcset="imgs/Website_Optimization2.webp">
+  <img loading="lazy" decoding="async" src="imgs/Website_Optimization2.gif" alt="Website Optimization" class="service-gif" width="120" height="120">
+</picture>
  <h3>Website Optimization</h3>
 <p>Boost speed and rankings with Lighthouse, GTmetrix, and SEO best practices.</p>
 </div>
@@ -262,7 +246,10 @@
 
 <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
   <!-- <i class="fas fa-star"></i> -->
-  <img loading="lazy" src="imgs/Expertise.gif" alt="EXPERTISE" class="feature-img">
+  <picture>
+    <source type="image/webp" srcset="imgs/Expertise.webp">
+    <img loading="lazy" decoding="async" src="imgs/Expertise.gif" alt="EXPERTISE" class="feature-img">
+  </picture>
   <h3>EXPERTISE</h3>
   <p style="color: #b0b0b0;">We're a technology partner committed to turning complex challenges into streamlined digital solutions. With expert IT consulting, proactive support, and a proven track record, we help you unlock growth through technology.</p>
 </div>
@@ -284,7 +271,10 @@
 
 <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
   <!-- <i class="fas fa-star"></i> -->
-  <img loading="lazy" src="imgs/Quick_Support.gif" alt="QUICK SUPPORT" class="feature-img">
+  <picture>
+    <source type="image/webp" srcset="imgs/Quick_Support.webp">
+    <img loading="lazy" decoding="async" src="imgs/Quick_Support.gif" alt="QUICK SUPPORT" class="feature-img">
+  </picture>
   <h3>QUICK SUPPORT</h3>
   <!-- <p style="color: #1a1a1a;">We have customer support to help our clients in solving their technical issues.</p> -->
   <p style="color: #b0b0b0;">We have customer support to help our clients in solving their technical issues.</p>
@@ -379,7 +369,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
-<script src="./js/script.js?v=20260507-footer-icons"></script>
+<script src="./js/script.js?v=20260507-footer-icons" defer></script>
 </body>
 </html>
 
